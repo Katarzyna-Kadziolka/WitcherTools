@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WitcherAPI", "WitcherAPI\WitcherAPI.csproj", "{110D7245-5CB2-4B04-9073-F9DF4D3BEF2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WitcherAPI.Tests", "WitcherAPI.Tests\WitcherAPI.Tests.csproj", "{437A45BB-50DB-4E19-A4CE-5E7C52E5AE90}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{110D7245-5CB2-4B04-9073-F9DF4D3BEF2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{110D7245-5CB2-4B04-9073-F9DF4D3BEF2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{110D7245-5CB2-4B04-9073-F9DF4D3BEF2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{110D7245-5CB2-4B04-9073-F9DF4D3BEF2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{437A45BB-50DB-4E19-A4CE-5E7C52E5AE90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{437A45BB-50DB-4E19-A4CE-5E7C52E5AE90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{437A45BB-50DB-4E19-A4CE-5E7C52E5AE90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{437A45BB-50DB-4E19-A4CE-5E7C52E5AE90}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {15A3B3FD-7351-40D9-B36B-0BE03C93D1B5}
+	EndGlobalSection
+EndGlobal
