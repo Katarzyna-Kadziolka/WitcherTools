@@ -3,5 +3,8 @@
 namespace WitcherAPI.Controllers {
     [Route("api/[controller]")]
     [ApiController]
-    public class BombController : ControllerBase { }
+    public class AlchemyController : ControllerBase {
+
+
+    }
 }
