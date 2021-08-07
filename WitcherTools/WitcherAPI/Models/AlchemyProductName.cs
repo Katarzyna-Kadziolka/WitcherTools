@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace WitcherAPI.Models
-{
-    public enum AlchemyProductName
-    {
+﻿namespace WitcherAPI.Models {
+    public enum AlchemyProductName {
         Unknown = 0,
         PotionSwallow = 100,
         PotionCat = 101,
@@ -17,6 +10,21 @@ namespace WitcherAPI.Models
         PotionOrca = 106,
         PotionBlizzard = 107,
         PotionRock = 108,
-        PotionWolf = 109
+        PotionWolf = 109,
+        OilHangmanVenom = 200,
+        OilAntiVampire = 201,
+        OilAntiInsectoid = 202,
+        OilAntiSpecter = 203,
+        OilAntiBeasts = 204,
+        OilAntiCursed = 205,
+        OilAntiOgroid = 206,
+        OilAntiRelict = 207,
+        OilAntiHybrid = 208,
+        OilAntiDraconid = 209,
+        OilAntiElemental = 210,
+        OilAntiNecrophage = 211,
+        BombSamum = 300,
+        BombDancingStar = 301,
+        BombSpark = 302
     }
 }
