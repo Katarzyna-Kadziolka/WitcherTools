@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using WitcherAPI.Models;
+using WitcherAPI.Models.Alchemy;
 
 namespace WitcherAPI.Services {
     public class AlchemyServices : IAlchemyServices {
@@ -11,15 +12,9 @@ namespace WitcherAPI.Services {
                     Name = AlchemyProductName.PotionCat,
                     Type = AlchemyProductType.Potion,
                     AlchemyBase = AlchemyBase.Alcohol,
-                    Ingredients = new Ingredient[2] {
-                        new Ingredient {
-                            Name = IngredientName.Aether,
-                            Amount = 2
-                        },
-                        new Ingredient {
-                            Name = IngredientName.Rebis,
-                            Amount = 3
-                        }
+                    Ingredients = new Ingredients {
+                        Rebis = 2,
+                        Aether = 1
                     },
                     Description = "Test1"
                 },
@@ -28,15 +23,9 @@ namespace WitcherAPI.Services {
                     Name = AlchemyProductName.BombDancingStar,
                     Type = AlchemyProductType.Bomb,
                     AlchemyBase = AlchemyBase.Nitrate,
-                    Ingredients = new Ingredient[2] {
-                        new Ingredient {
-                            Name = IngredientName.Hydragenum,
-                            Amount = 2
-                        },
-                        new Ingredient {
-                            Name = IngredientName.Vermillion,
-                            Amount = 3
-                        }
+                    Ingredients = new Ingredients {
+                        Hydragenum = 2,
+                        Vermillion = 1
                     },
                     Description = "Test2"
                 }

@@ -1,4 +1,4 @@
-﻿namespace WitcherAPI.Models {
+﻿namespace WitcherAPI.Models.Alchemy {
     public enum AlchemyProductName {
         Unknown = 0,
         PotionSwallow = 100,

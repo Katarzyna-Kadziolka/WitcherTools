@@ -1,4 +1,4 @@
-﻿namespace WitcherAPI.Models {
+﻿namespace WitcherAPI.Models.Alchemy.Potions {
     public enum Duration {
         Unknown = 0,
         WholeDay = 1,

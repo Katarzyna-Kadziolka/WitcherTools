@@ -1,4 +1,4 @@
-﻿namespace WitcherAPI.Models {
+﻿namespace WitcherAPI.Models.Alchemy.Oils {
     public enum OilEffectiveness {
         Unknown = 0,
         Beast = 1,
