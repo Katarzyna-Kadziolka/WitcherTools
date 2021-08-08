@@ -2,7 +2,7 @@
 using WitcherAPI.Models;
 
 namespace WitcherAPI.Services {
-    interface IAlchemyServices {
+    public interface IAlchemyServices {
         List<AlchemyProduct> GetAlchemyProducts();
     }
 }

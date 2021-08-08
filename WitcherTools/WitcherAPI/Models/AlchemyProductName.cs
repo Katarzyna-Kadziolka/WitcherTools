@@ -10,7 +10,7 @@
         PotionOrca = 106,
         PotionBlizzard = 107,
         PotionRock = 108,
-        PotionWolf = 109,
+        PotionThunderBolt = 109,
         OilHangmanVenom = 200,
         OilAntiVampire = 201,
         OilAntiInsectoid = 202,

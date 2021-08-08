@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using WitcherAPI.Models;
 using WitcherAPI.Services;
@@ -14,10 +15,21 @@ namespace WitcherAPI.Controllers {
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<AlchemyProduct>> GetAlchemyProducts() {
+        public ActionResult<IEnumerable<AlchemyProduct>> GetAlchemyProducts(
+            [FromQuery] AlchemyProductType[] alchemyProductType, 
+            [FromQuery] IngredientsQuery ingredientsQuery) {
 
-            return Ok();
+            return Ok(_alchemyServices.GetAlchemyProducts());
         }
 
+        [HttpGet("{id}")]
+        public ActionResult<AlchemyProduct> GetAlchemyProduct(string id) {
+            var alchemyProduct = _alchemyServices.GetAlchemyProducts().Find(a => a.Id == id);
+            if (alchemyProduct == null) {
+                return NotFound();
+            }
+
+            return Ok(alchemyProduct);
+        }
     }
 }

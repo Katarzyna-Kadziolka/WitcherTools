@@ -11,6 +11,7 @@
         Ogroid = 8,
         Relict = 9,
         Specter = 10,
-        Vampire = 11
+        Vampire = 11,
+        Human = 12
     }
 }
