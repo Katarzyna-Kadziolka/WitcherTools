@@ -14,7 +14,11 @@ namespace WitcherAPI.Services {
                     AlchemyBase = AlchemyBase.Alcohol,
                     Ingredients = new Ingredients {
                         Rebis = 2,
-                        Aether = 1
+                        Aether = 1,
+                        Vitriol = 0,
+                        Vermillion = 0,
+                        Quebrith = 0,
+                        Hydragenum = 0
                     },
                     Description = "Test1"
                 },
@@ -25,7 +29,11 @@ namespace WitcherAPI.Services {
                     AlchemyBase = AlchemyBase.Nitrate,
                     Ingredients = new Ingredients {
                         Hydragenum = 2,
-                        Vermillion = 1
+                        Vermillion = 1,
+                        Aether = 0,
+                        Rebis = 0,
+                        Vitriol = 0,
+                        Quebrith = 0
                     },
                     Description = "Test2"
                 }

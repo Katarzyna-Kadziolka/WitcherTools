@@ -17,20 +17,27 @@ namespace WitcherAPI.Controllers {
 
         [HttpGet]
         public ActionResult<IEnumerable<AlchemyProduct>> GetAlchemyProducts(
-            [FromQuery] AlchemyProductType[] alchemyProductType, 
+            [FromQuery] AlchemyProductType[] alchemyProductType,
             [FromQuery] Ingredients ingredients) {
+            if (ingredients.GetType().GetProperties().Any(a => a.GetValue(ingredients) != null)) {
+                foreach (var propertyInfo in ingredients.GetType().GetProperties()
+                    .Where(a => a.GetValue(ingredients) == null)) {
+                    propertyInfo.SetValue(ingredients, 0);
+                }
+            }
 
-            var alchemyProducts = _alchemyServices.GetAlchemyProducts().
-                FindAll(a => 
-                             (alchemyProductType.Length == 0 || alchemyProductType.Contains(a.Type)) &&
-                             (ingredients.Rebis == null && ingredients.Vermillion == null && ingredients.Aether == null && ingredients.Hydragenum == null && ingredients.Quebrith == null && ingredients.Vitriol == null) ||
-                             ingredients.Rebis >= a.Ingredients.Rebis &&
-                             ingredients.Hydragenum >= a.Ingredients.Hydragenum &&
-                             ingredients.Vermillion >= a.Ingredients.Vermillion &&
-                             ingredients.Vitriol >= a.Ingredients.Vitriol &&
-                             ingredients.Aether >= a.Ingredients.Aether &&
-                             ingredients.Quebrith >= a.Ingredients.Quebrith);
-            
+            var alchemyProducts = _alchemyServices.GetAlchemyProducts().FindAll(a =>
+                (alchemyProductType.Length == 0 || alchemyProductType.Contains(a.Type)) &&
+                (ingredients.Rebis == null && ingredients.Vermillion == null &&
+                 ingredients.Aether == null && ingredients.Hydragenum == null && ingredients.Quebrith == null &&
+                 ingredients.Vitriol == null) ||
+                ingredients.Rebis >= a.Ingredients.Rebis &&
+                ingredients.Hydragenum >= a.Ingredients.Hydragenum &&
+                ingredients.Vermillion >= a.Ingredients.Vermillion &&
+                ingredients.Vitriol >= a.Ingredients.Vitriol &&
+                ingredients.Aether >= a.Ingredients.Aether &&
+                ingredients.Quebrith >= a.Ingredients.Quebrith);
+
 
             return Ok(alchemyProducts);
         }
