@@ -6,12 +6,12 @@ using WitcherAPI.Models.Alchemy.Bombs;
 using WitcherAPI.Models.Alchemy.Potions;
 
 namespace WitcherAPI.Services {
-    public class AlchemyServices : IAlchemyServices {
+    public class AlchemyService : IAlchemyService {
         public List<AlchemyProduct> GetAlchemyProducts() {
             return new List<AlchemyProduct> {
                 new Potion() {
                     Id = "0001",
-                    Name = AlchemyProductName.PotionCat,
+                    Name = "Cat",
                     Type = AlchemyProductType.Potion,
                     AlchemyBase = AlchemyBase.Alcohol,
                     Ingredients = new Ingredients {
@@ -26,7 +26,7 @@ namespace WitcherAPI.Services {
                 },
                 new Bomb() {
                     Id = "0002",
-                    Name = AlchemyProductName.BombDancingStar,
+                    Name = "BombDancingStar",
                     Type = AlchemyProductType.Bomb,
                     AlchemyBase = AlchemyBase.Nitrate,
                     Ingredients = new Ingredients {
@@ -46,7 +46,7 @@ namespace WitcherAPI.Services {
             var list = new List<AlchemyProduct> {
                 new Potion() {
                     Id = "0001",
-                    Name = AlchemyProductName.PotionCat,
+                    Name = "Cat",
                     Type = AlchemyProductType.Potion,
                     AlchemyBase = AlchemyBase.Alcohol,
                     Ingredients = new Ingredients {
@@ -61,7 +61,7 @@ namespace WitcherAPI.Services {
                 },
                 new Bomb() {
                     Id = "0002",
-                    Name = AlchemyProductName.BombDancingStar,
+                    Name = "BombDancingStar",
                     Type = AlchemyProductType.Bomb,
                     AlchemyBase = AlchemyBase.Nitrate,
                     Ingredients = new Ingredients {

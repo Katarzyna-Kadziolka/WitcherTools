@@ -5,41 +5,24 @@ using Moq;
 using NUnit.Framework;
 using WitcherAPI.Controllers;
 using WitcherAPI.Models.Alchemy;
-using WitcherAPI.Models.Alchemy.Potions;
 using WitcherAPI.Services;
+using WitcherAPI.Tests.Extensions;
+using WitcherAPI.Tests.TestData;
 
 namespace WitcherAPI.Tests {
     public class AlchemyControllerTests {
         [Test]
         public void GetAlchemyProducts_NoQueryStringsParameters_ShouldReturnList() {
             // Arrange
-            Mock<IAlchemyServices> moqAlchemyServices = new Mock<IAlchemyServices>();
-            var exampleList = new List<AlchemyProduct> {
-                new Potion() {
-                    Id = "0001",
-                    Name = AlchemyProductName.PotionCat,
-                    Type = AlchemyProductType.Potion,
-                    AlchemyBase = AlchemyBase.Alcohol,
-                    Ingredients = new Ingredients {
-                        Rebis = 2,
-                        Aether = 1,
-                        Vitriol = 0,
-                        Vermillion = 0,
-                        Quebrith = 0,
-                        Hydragenum = 0
-                    },
-                    Description = "Test1"
-                }
-            };
-            moqAlchemyServices.Setup(a => a.GetAlchemyProducts()).Returns(exampleList);
-            var controller = new AlchemyController(moqAlchemyServices.Object);
+            Mock<IAlchemyService> alchemyService = new Mock<IAlchemyService>();
+            var expectedList = new List<AlchemyProduct> { PotionData.CreatePotion() };
+            alchemyService.Setup(a => a.GetAlchemyProducts()).Returns(expectedList);
+            var controller = new AlchemyController(alchemyService.Object);
             //Act
-            var actionResult = controller.GetAlchemyProducts(new AlchemyProductType[]{}, new Ingredients());
-            var result = actionResult.Result as OkObjectResult;
-            var actual = result.Value as IEnumerable<AlchemyProduct>;
+            var actionResult = controller.GetAlchemyProducts(new AlchemyProductType[] { }, new Ingredients());
             //Assert
-            result.Should().BeOfType<OkObjectResult>();
-            actual.Should().BeEquivalentTo(exampleList);
+            actionResult.Result.Should().BeOfType<OkObjectResult>();
+            actionResult.GetValue().Should().BeEquivalentTo(expectedList);
         }
     }
 }

@@ -9,10 +9,10 @@ namespace WitcherAPI.Controllers {
     [Route("api/[controller]")]
     [ApiController]
     public class AlchemyController : ControllerBase {
-        private readonly IAlchemyServices _alchemyServices;
+        private readonly IAlchemyService _alchemyService;
 
-        public AlchemyController(IAlchemyServices alchemyServices) {
-            _alchemyServices = alchemyServices;
+        public AlchemyController(IAlchemyService alchemyService) {
+            _alchemyService = alchemyService;
         }
 
         [HttpGet]
@@ -26,7 +26,7 @@ namespace WitcherAPI.Controllers {
                 }
             }
 
-            var alchemyProducts = _alchemyServices.GetAlchemyProducts().FindAll(a =>
+            var alchemyProducts = _alchemyService.GetAlchemyProducts().FindAll(a =>
                 (alchemyProductType.Length == 0 || alchemyProductType.Contains(a.Type)) &&
                 (ingredients.Rebis == null && ingredients.Vermillion == null &&
                  ingredients.Aether == null && ingredients.Hydragenum == null && ingredients.Quebrith == null &&
@@ -38,13 +38,12 @@ namespace WitcherAPI.Controllers {
                 ingredients.Aether >= a.Ingredients.Aether &&
                 ingredients.Quebrith >= a.Ingredients.Quebrith);
 
-
             return Ok(alchemyProducts);
         }
 
         [HttpGet("{id}")]
         public ActionResult<AlchemyProduct> GetAlchemyProduct(string id) {
-            var alchemyProduct = _alchemyServices.GetAlchemyProduct(id);
+            var alchemyProduct = _alchemyService.GetAlchemyProduct(id);
             if (alchemyProduct == null) {
                 return NotFound();
             }
