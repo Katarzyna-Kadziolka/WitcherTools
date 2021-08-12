@@ -44,7 +44,7 @@ namespace WitcherAPI.Controllers {
 
         [HttpGet("{id}")]
         public ActionResult<AlchemyProduct> GetAlchemyProduct(string id) {
-            var alchemyProduct = _alchemyServices.GetAlchemyProducts().Find(a => a.Id == id);
+            var alchemyProduct = _alchemyServices.GetAlchemyProduct(id);
             if (alchemyProduct == null) {
                 return NotFound();
             }

@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 
 namespace WitcherAPI.Models.Alchemy {
-    public class AlchemyProduct {
+    public abstract class AlchemyProduct {
         [BsonId]
         [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
