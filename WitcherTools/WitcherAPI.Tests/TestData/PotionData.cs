@@ -4,7 +4,7 @@ using WitcherAPI.Models.Alchemy.Potions;
 namespace WitcherAPI.Tests.TestData {
     public class PotionData {
         public static Potion CreatePotion() {
-            return new Potion() {
+            return new() {
                 Id = "0001",
                 Name = "Cat",
                 Type = AlchemyProductType.Potion,
@@ -17,9 +17,9 @@ namespace WitcherAPI.Tests.TestData {
                     Quebrith = 0,
                     Hydragenum = 0
                 },
-                Description = "Test1"
+                Description = "Test1",
+                Duration = Duration.WholeDay
             };
         }
     }
 }
-// klasa dla oleju i dla bomby

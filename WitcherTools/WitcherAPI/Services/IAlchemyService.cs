@@ -4,7 +4,7 @@ using WitcherAPI.Models.Alchemy;
 
 namespace WitcherAPI.Services {
     public interface IAlchemyService {
-        List<AlchemyProduct> GetAlchemyProducts();
+        IEnumerable<AlchemyProduct> GetAlchemyProducts();
         AlchemyProduct GetAlchemyProduct(string id);
     }
 }
