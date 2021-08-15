@@ -7,7 +7,7 @@ namespace WitcherAPI.Tests.TestData {
             return new() {
                 Id = "6117e3a51c7e716eac97a553",
                 Name = "AgainstVampires",
-                AlchemyBase = AlchemyBase.Saddle,
+                AlchemyBase = AlchemyBase.Fat,
                 Type = AlchemyProductType.Oil,
                 OilEffectiveness = OilEffectiveness.Vampire,
                 Description = "Test2",
