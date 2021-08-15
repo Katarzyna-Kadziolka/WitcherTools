@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using WitcherAPI.Models;
 using WitcherAPI.Models.Alchemy;
 using WitcherAPI.Services;
 
@@ -20,7 +19,7 @@ namespace WitcherAPI.Controllers {
             [FromQuery] AlchemyProductType[] alchemyProductType,
             [FromQuery] Ingredients ingredients) {
             if (!ingredients.IsEmpty()) ingredients.SetDefaultValues();
-            
+
             var alchemyProducts = _alchemyService.GetAlchemyProducts().Where(a =>
                 (alchemyProductType.Length == 0 || alchemyProductType.Contains(a.Type)) &&
                 (ingredients.IsEmpty() || ingredients.Contains(a.Ingredients)));

@@ -1,18 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using FluentAssertions;
-using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
-using Moq;
 using NUnit.Framework;
-using WitcherAPI.Controllers;
 using WitcherAPI.Converters;
 using WitcherAPI.Models.Alchemy;
 using WitcherAPI.Models.Alchemy.Bombs;
 using WitcherAPI.Models.Alchemy.Oils;
 using WitcherAPI.Models.Alchemy.Potions;
-using WitcherAPI.Services;
-using WitcherAPI.Tests.Extensions;
 using WitcherAPI.Tests.TestData;
 
 namespace WitcherAPI.Tests {
@@ -62,7 +57,7 @@ namespace WitcherAPI.Tests {
             act.Should().Throw<ArgumentOutOfRangeException>();
         }
         [Test]
-        public void Convert_IncorrectClass_ShouldReturn() {
+        public void Convert_IncorrectClass_ShouldReturnKeyNotFoundException() {
             // Arrange
             var incorrectClass = new {
                 Name = "test"
@@ -72,6 +67,14 @@ namespace WitcherAPI.Tests {
             Action act = () => BsonToAlchemyProductConverter.Convert(bson);
             //Assert
             act.Should().Throw<KeyNotFoundException>();
+        }
+        [Test]
+        public void Convert_Null_ShouldReturn() {
+            // Arrange
+            //Act
+            Action act = () => BsonToAlchemyProductConverter.Convert(null);
+            //Assert
+            act.Should().Throw<NullReferenceException>();
         }
     }
 }

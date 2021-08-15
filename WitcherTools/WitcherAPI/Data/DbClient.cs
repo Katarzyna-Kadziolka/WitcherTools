@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
-using MongoDB.Bson.Serialization;
-using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
-using MongoDB.Driver.Linq;
 using WitcherAPI.Converters;
 using WitcherAPI.Models.Alchemy;
-using WitcherAPI.Models.Alchemy.Bombs;
-using WitcherAPI.Models.Alchemy.Oils;
-using WitcherAPI.Models.Alchemy.Potions;
 
 namespace WitcherAPI.Data {
     public class DbClient {
