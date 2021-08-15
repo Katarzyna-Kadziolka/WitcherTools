@@ -5,7 +5,7 @@ namespace WitcherAPI.Tests.TestData {
     public class OilData {
         public static Oil CreateOil() {
             return new() {
-                Id = "0002",
+                Id = "6117e3a51c7e716eac97a553",
                 Name = "AgainstVampires",
                 AlchemyBase = AlchemyBase.Saddle,
                 Type = AlchemyProductType.Oil,

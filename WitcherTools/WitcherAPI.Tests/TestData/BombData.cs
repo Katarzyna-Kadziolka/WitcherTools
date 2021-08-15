@@ -12,7 +12,7 @@ namespace WitcherAPI.Tests.TestData
     {
         public static Bomb CreateBomb() {
             return new() {
-                Id = "0003",
+                Id = "6117e3a51c7e716eac97a550",
                 Name = "DancingStar",
                 Type = AlchemyProductType.Bomb,
                 AlchemyBase = AlchemyBase.Nitrate,

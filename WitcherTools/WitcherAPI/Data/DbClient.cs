@@ -6,6 +6,7 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
+using WitcherAPI.Converters;
 using WitcherAPI.Models.Alchemy;
 using WitcherAPI.Models.Alchemy.Bombs;
 using WitcherAPI.Models.Alchemy.Oils;
@@ -27,23 +28,17 @@ namespace WitcherAPI.Data {
                 .Find(a => true).ToList();
             var alchemyProducts = new List<AlchemyProduct>();
             foreach (var bson in rawData) {
-                var type = (AlchemyProductType) bson[nameof(AlchemyProduct.Type)].AsInt32;
-                switch (type) {
-                    case AlchemyProductType.Potion:
-                        alchemyProducts.Add(BsonSerializer.Deserialize<Potion>(bson));
-                        break;
-                    case AlchemyProductType.Oil:
-                        alchemyProducts.Add(BsonSerializer.Deserialize<Oil>(bson));
-                        break;
-                    case AlchemyProductType.Bomb:
-                        alchemyProducts.Add(BsonSerializer.Deserialize<Bomb>(bson));
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
+                alchemyProducts.Add(BsonToAlchemyProductConverter.Convert(bson));
             }
 
             return alchemyProducts;
+        }
+
+        public AlchemyProduct GetAlchemyProduct(string id) {
+            var rawData = _database.GetCollection<BsonDocument>(_dbConfig.Alchemy_Products_Collection_Name)
+                .Find($"{{ _id: ObjectId('{id}') }}").Single();
+            var alchemyProduct = BsonToAlchemyProductConverter.Convert(rawData);
+            return alchemyProduct;
         }
     }
 }

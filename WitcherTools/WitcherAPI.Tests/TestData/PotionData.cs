@@ -5,7 +5,7 @@ namespace WitcherAPI.Tests.TestData {
     public class PotionData {
         public static Potion CreatePotion() {
             return new() {
-                Id = "0001",
+                Id = "6117e3a51c7e716eac97a554",
                 Name = "Cat",
                 Type = AlchemyProductType.Potion,
                 AlchemyBase = AlchemyBase.Alcohol,

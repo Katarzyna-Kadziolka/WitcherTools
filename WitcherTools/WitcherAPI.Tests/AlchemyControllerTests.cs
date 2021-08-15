@@ -222,7 +222,7 @@ namespace WitcherAPI.Tests {
             alchemyService.Setup(a => a.GetAlchemyProduct(expectedAlchemyProduct.Id)).Returns(expectedAlchemyProduct);
             var controller = new AlchemyController(alchemyService.Object);
             //Act
-            var actionResult = controller.GetAlchemyProduct("0001");
+            var actionResult = controller.GetAlchemyProduct(expectedAlchemyProduct.Id);
             //Assert
             actionResult.Result.Should().BeOfType<OkObjectResult>();
             actionResult.GetValue().Should().BeEquivalentTo(expectedAlchemyProduct);
