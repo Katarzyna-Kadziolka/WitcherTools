@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json.Converters;
 using WitcherAPI.Data;
 using WitcherAPI.Services;
 
@@ -20,12 +21,13 @@ namespace WitcherAPI {
             services.AddSingleton<DbClient>();
             services.Configure<DbConfig>(Configuration);
             services.AddTransient<IAlchemyService, AlchemyService>();
-            services.AddControllers().AddJsonOptions(options => {
-                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            services.AddControllers().AddNewtonsoftJson(options => {
+                options.SerializerSettings.Converters.Add(new StringEnumConverter());
             });
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "WitcherAPI", Version = "v1"});
             });
+            services.AddSwaggerGenNewtonsoftSupport();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
