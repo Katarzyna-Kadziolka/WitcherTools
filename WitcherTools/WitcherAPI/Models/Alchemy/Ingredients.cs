@@ -7,11 +7,11 @@ namespace WitcherAPI.Models.Alchemy {
         public int? Aether { get; set; }
         public int? Quebrith { get; set; }
         public int? Hydragenum { get; set; }
-        public int? Vermillion { get; set; }
+        public int? Vermilion { get; set; }
 
         public bool Contains(Ingredients ingredients) {
             return Rebis >= ingredients.Rebis && Hydragenum >= ingredients.Hydragenum &&
-                   Vermillion >= ingredients.Vermillion && Vitriol >= ingredients.Vitriol &&
+                   Vermilion >= ingredients.Vermilion && Vitriol >= ingredients.Vitriol &&
                    Aether >= ingredients.Aether && Quebrith >= ingredients.Quebrith;
         }
 

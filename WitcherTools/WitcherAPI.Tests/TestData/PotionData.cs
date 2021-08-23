@@ -13,7 +13,7 @@ namespace WitcherAPI.Tests.TestData {
                     Rebis = 2,
                     Aether = 1,
                     Vitriol = 0,
-                    Vermillion = 0,
+                    Vermilion = 0,
                     Quebrith = 0,
                     Hydragenum = 0
                 },

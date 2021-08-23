@@ -16,7 +16,7 @@ namespace WitcherAPI.Tests.TestData {
                     Hydragenum = 2,
                     Quebrith = 0,
                     Rebis = 0,
-                    Vermillion = 2,
+                    Vermilion = 2,
                     Vitriol = 0
                 }
             };

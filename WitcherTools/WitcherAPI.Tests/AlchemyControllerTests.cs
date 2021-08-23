@@ -123,7 +123,7 @@ namespace WitcherAPI.Tests {
             var controller = new AlchemyController(alchemyService.Object);
             //Act
             var actionResult = controller.GetAlchemyProducts(new AlchemyProductType[] { },
-                new Ingredients {Aether = 1, Rebis = 2, Hydragenum = 1, Quebrith = 1, Vermillion = 1, Vitriol = 1});
+                new Ingredients {Aether = 1, Rebis = 2, Hydragenum = 1, Quebrith = 1, Vermilion = 1, Vitriol = 1});
             //Assert
             actionResult.Result.Should().BeOfType<OkObjectResult>();
             actionResult.GetValue().Should().BeEquivalentTo(expectedList);
@@ -157,7 +157,7 @@ namespace WitcherAPI.Tests {
             var controller = new AlchemyController(alchemyService.Object);
             //Act
             var actionResult = controller.GetAlchemyProducts(new AlchemyProductType[] { },
-                new Ingredients {Aether = 1, Rebis = 1, Hydragenum = 1, Quebrith = 1, Vermillion = 1, Vitriol = 1});
+                new Ingredients {Aether = 1, Rebis = 1, Hydragenum = 1, Quebrith = 1, Vermilion = 1, Vitriol = 1});
             //Assert
             actionResult.Result.Should().BeOfType<OkObjectResult>();
             actionResult.GetValue().Should().BeEquivalentTo(expectedList);
@@ -174,7 +174,7 @@ namespace WitcherAPI.Tests {
             var controller = new AlchemyController(alchemyService.Object);
             //Act
             var actionResult = controller.GetAlchemyProducts(new[] {AlchemyProductType.Potion},
-                new Ingredients {Aether = 1, Rebis = 2, Hydragenum = 1, Quebrith = 1, Vermillion = 1, Vitriol = 1});
+                new Ingredients {Aether = 1, Rebis = 2, Hydragenum = 1, Quebrith = 1, Vermilion = 1, Vitriol = 1});
             //Assert
             actionResult.Result.Should().BeOfType<OkObjectResult>();
             actionResult.GetValue().Should().BeEquivalentTo(expectedList);
@@ -191,7 +191,7 @@ namespace WitcherAPI.Tests {
             var controller = new AlchemyController(alchemyService.Object);
             //Act
             var actionResult = controller.GetAlchemyProducts(new[] {AlchemyProductType.Potion},
-                new Ingredients {Aether = 1, Rebis = 1, Hydragenum = 1, Quebrith = 1, Vermillion = 1, Vitriol = 1});
+                new Ingredients {Aether = 1, Rebis = 1, Hydragenum = 1, Quebrith = 1, Vermilion = 1, Vitriol = 1});
             //Assert
             actionResult.Result.Should().BeOfType<OkObjectResult>();
             actionResult.GetValue().Should().BeEquivalentTo(expectedList);
@@ -208,7 +208,7 @@ namespace WitcherAPI.Tests {
             var controller = new AlchemyController(alchemyService.Object);
             //Act
             var actionResult = controller.GetAlchemyProducts(new[] {AlchemyProductType.Potion},
-                new Ingredients {Aether = 1, Rebis = 1, Hydragenum = 2, Quebrith = 1, Vermillion = 2, Vitriol = 1});
+                new Ingredients {Aether = 1, Rebis = 1, Hydragenum = 2, Quebrith = 1, Vermilion = 2, Vitriol = 1});
             //Assert
             actionResult.Result.Should().BeOfType<OkObjectResult>();
             actionResult.GetValue().Should().BeEquivalentTo(expectedList);
